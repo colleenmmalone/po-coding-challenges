@@ -27,28 +27,24 @@ public class Week2Q1 {
 		actualMemorySize("512GB");
 		actualMemorySize("64GB");
 		actualMemorySize("32GB");
-		actualMemorySize("0.5GB");
+		actualMemorySize("1.06GB");
+		actualMemorySize("1GB");
 	}
 	
 	public static void actualMemorySize(String s){
-//		System.out.println(s);
-		String units = s.substring(s.length()-2);
-		
-//		System.out.println(units);
+
+		String units = s.substring(s.length()-2);	
 		String ss = s.substring(0,s.length()-2);
 		double d = Double.parseDouble(ss);
+	
+		d = d * 0.93;
 		if(d < 1) {
-//			System.out.println("MB");
 			d = d*1000;
 			units = "MB";
-		}else {
-//			System.out.println("GB");
 		}
 		
-//		System.out.println(i);
-		
-		d = d * 0.93;
 		String dd = new DecimalFormat("#.##").format(d);
+		
 		System.out.println(s+" is actually "+dd+units);
 	}
 
