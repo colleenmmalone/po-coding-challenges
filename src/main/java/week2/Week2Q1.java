@@ -24,11 +24,12 @@ Notes
 public class Week2Q1 {
 	
 	public static void main(String[] args) {
-		actualMemorySize("512GB");
+		actualMemorySize("512MB");
 		actualMemorySize("64GB");
 		actualMemorySize("32GB");
 		actualMemorySize("1.06GB");
 		actualMemorySize("1GB");
+		actualMemorySize("1MB");
 	}
 	
 	public static void actualMemorySize(String s){
@@ -40,7 +41,13 @@ public class Week2Q1 {
 		d = d * 0.93;
 		if(d < 1) {
 			d = d*1000;
+			if(units.equals("GB")) {
 			units = "MB";
+			}else if (units.equals("MB")) {
+				units = "kB";
+			}else {
+				units = "B";
+			}
 		}
 		
 		String dd = new DecimalFormat("#.##").format(d);
